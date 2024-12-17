@@ -1,0 +1,868 @@
+<section class="banner-{{ section.id }}">
+  <div class="frame-change core-common-billboard  frame1 text-align-desk-{{ section.settings.text-align-desk }} text-align-sm-{{ section.settings.text-align-sm }}">
+    <div class="core-common-billboard-wrapper core-common-billboard-wrapper-{{ section.settings.content-position }} core-vertical-billboard-wrapper-{{ section.settings.content-position-vertical }}">
+      {%- for block in section.blocks -%}
+        {% if block.settings['block-text-content'] != blank %}
+          <p id="block-text-content-{{block.id}}" class="block-content">
+            {{ block.settings['block-text-content'] }}
+          </p>
+          {% style %}
+            .banner-{{ section.id }} #block-text-content-{{block.id}} {
+              font-family: {{ block.settings.block-text-font-family }};
+              font-size: {{ block.settings.block-text-font-size-lg }};
+              font-weight: {{ block.settings.block-text-font-weight }};
+              letter-spacing: {{ block.settings.block-text-letter-spacing }};
+              line-height: {{ block.settings.block-text-line-height }};
+              color:{{ block.settings.block-text-color }};
+              margin:{{ block.settings.text-padding-top }} 0 {{ block.settings.text-padding-bottom }} 0;
+              background-clip:text !important;
+              -webkit-background-clip:text !important;
+              -webkit-text-fill-color:{{ block.settings.text-fill-color }};
+              background:{{ block.settings.block-color-gradient }};
+              text-shadow:{{ block.settings.text-shadow }};
+            }
+            @media (max-width: 639px) {
+              .banner-{{ section.id }} #block-text-content-{{block.id}} {
+                font-size: {{ block.settings.block-text-font-size-sm }};
+                letter-spacing: {{ block.settings.block-text-letter-spacing-sm }};
+                line-height: {{ block.settings.block-text-line-height-sm }};
+                margin:{{ block.settings.text-padding-top-sm }} 0 {{ block.settings.text-padding-bottom-sm }} 0;
+              }
+            }
+          {% endstyle %}
+        {% endif %}
+    {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% style %}
+
+    main#MainContent {
+        overflow: hidden;
+    }
+    .banner-{{ section.id }} .core-common-billboard {
+                background: url({{ section.settings.billboard-bg-image-lg | image_url }}) center top/cover no-repeat;
+                position: relative;
+                  height: {{ section.settings.height-desk }};
+                  background-color:{{ section.settings.billboard-color-lg }};
+       }
+       .banner-{{ section.id }} .frame2 {
+  background: url({{ section.settings.billboard-bg-image-lg2 | image_url }}) center top/cover no-repeat;
+         }
+    .banner-{{ section.id }} .core-common-billboard .block-cta {
+             font-family: quasimoda, "sans-serif";
+             font-weight: bold;
+             height: 13.889vw;
+             display: inline-flex;
+             align-items: center;
+             justify-content: center;
+             letter-spacing: .278vw;
+     }
+  .banner-{{ section.id }} .billboard-shipping-section {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+      
+    .banner-{{ section.id }} .core-common-billboard  a:hover {
+             text-decoration: none;
+    }
+   .banner-{{ section.id }} .core-common-billboard img {
+     max-width: 100%;
+   }
+   .banner-{{ section.id }} .core-common-billboard .offer-image-section img {
+            height: 100%;
+    }
+
+    @media (min-width: 40em) {
+        .banner-{{ section.id }} .core-common-billboard.text-align-desk-center {
+              text-align: center;
+    }
+    .banner-{{ section.id }} .core-common-billboard.text-align-desk-left {
+              text-align: left;
+    }
+    .banner-{{ section.id }} .core-common-billboard.text-align-desk-right {
+              text-align: right;
+    }
+       .banner-{{ section.id }} .core-common-billboard .block-cta {
+               letter-spacing: .069vw;
+               height: 3.5vw;
+        }
+
+       .banner-{{ section.id }} .core-common-billboard .core-common-billboard-wrapper{
+        width:{{ section.settings.content-width-desktop }};
+        position: absolute;
+        }
+        .banner-{{ section.id }} .core-common-billboard .core-common-billboard-wrapper-right {
+          right:{{ section.settings.content-position-right }};
+        }
+        .banner-{{ section.id }} .core-common-billboard .core-common-billboard-wrapper-left{
+          left:{{ section.settings.content-position-left }};
+        }
+         .banner-{{ section.id }} .core-common-billboard .core-common-billboard-wrapper-center {
+          right: 50%;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+    .banner-{{ section.id }} .core-common-billboard-wrapper.core-common-billboard-wrapper-left.core-vertical-billboard-wrapper-center {
+      transform: translateY(-50%);
+      top: 50%;
+    }
+    .banner-{{ section.id }} .core-common-billboard-wrapper.core-common-billboard-wrapper-center.core-vertical-billboard-wrapper-center {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .banner-{{ section.id }} .core-common-billboard-wrapper.core-common-billboard-wrapper-right.core-vertical-billboard-wrapper-center {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+        .banner-{{ section.id }} .core-common-billboard .core-vertical-billboard-wrapper-bottom {
+          bottom: 3vw;
+        }
+    .banner-{{ section.id }} .core-common-billboard .core-vertical-billboard-wrapper-top {
+        top:3vw;
+    }
+
+    }
+      @media only screen and (max-width: 39.99em) {
+         .banner-{{ section.id }} .core-common-billboard.text-align-sm-center {
+              text-align: center;
+        }
+    .banner-{{ section.id }} .core-common-billboard.text-align-sm-left {
+              text-align: left;
+    }
+    .banner-{{ section.id }} .core-common-billboard.text-align-sm-right {
+              text-align: right;
+    }
+         .banner-{{ section.id }} .core-common-billboard {
+                  background: url({{ section.settings.billboard-bg-image-sm  | image_url }}) center top/cover no-repeat;
+                  background-color:{{ section.settings.billboard-color-sm }};
+                  height: {{ section.settings.height-mobile }};
+                  padding-top:{{ section.settings.section-padding-top-sm }};
+                  padding-right:{{ section.settings.section-padding-right-sm }};
+                  padding-bottom:{{ section.settings.section-padding-bottom-sm }};
+                  padding-left:{{ section.settings.section-padding-left-sm }};
+            }
+        .banner-{{ section.id }} .frame2 {
+  background: url({{ section.settings.billboard-bg-image-sm2 | image_url }}) center top/cover no-repeat;
+         }
+
+         .banner-{{ section.id }} .core-common-billboard .free-shipping-option-desktop {
+           display:none;
+         }
+      }
+{% endstyle %}
+{% if section.settings['set-as-gif-banner'] %}
+  <script>
+      $(function() {
+    	setInterval(function() {
+    		$(".frame-change").hasClass("frame1") ? $(".frame-change").addClass("frame2").removeClass("frame1") : $(".frame-change").hasClass("frame2") && $(".frame-change").addClass("frame1").removeClass("frame2")
+    	}, 2500)
+    });
+  </script>
+{% endif %}
+{% schema %}
+{
+"name": "Core Billboard",
+"settings": [
+  {
+    "type": "header",
+    "content": "Core Billboard"
+  },
+   {
+        "type": "color",
+        "id": "billboard-color-lg",
+        "label": "Billboard BG Color Dskt"
+      },
+   {
+        "type": "color",
+        "id": "billboard-color-sm",
+        "label": "Billboard BG Color Mobile"
+      },
+   {
+        "type": "image_picker",
+        "id": "billboard-bg-image-lg",
+        "label": "Billboard BG Image Dskt"
+      },
+   {
+        "type": "image_picker",
+        "id": "billboard-bg-image-sm",
+        "label": "Billboard BG Image Mobile"
+      },
+  {
+              "type":"checkbox",
+              "id":"set-as-gif-banner",
+              "label":"Enable Dynamic Gif Billboard Image",
+              "info":"Backgroung Image displays as Gif",
+              "default":false
+          },
+  {
+        "type": "image_picker",
+        "id": "billboard-bg-image-lg2",
+        "label": "Billboard BG Image 2 Dskt"
+      },
+   {
+        "type": "image_picker",
+        "id": "billboard-bg-image-sm2",
+        "label": "Billboard BG Image 2 Mobile"
+      },
+  {
+			"type":"select",
+			"id":"content-position",
+			"label":"Desktop Content Position Horizontal(X-axis)",
+			"options":[
+				{
+					"value":"left",
+					"label":"Show Left"
+				},
+				{
+					"value":"center",
+					"label":"Show Center"
+				},
+              {
+					"value":"right",
+					"label":"Show Right"
+				}
+			],
+			"default":"right",
+			"info":"Default Value: Show right"
+		},
+  {
+			"type":"select",
+			"id":"content-position-vertical",
+			"label":"Desktop Content Position Vertical(Y-axis)",
+			"options":[
+				{
+					"value":"top",
+					"label":"Show Top"
+				},
+				{
+					"value":"center",
+					"label":"Show Center"
+				},
+              {
+					"value":"bottom",
+					"label":"Show Bottom"
+				}
+			],
+			"default":"center",
+			"info":"Default Value: Show Center"
+		},
+  {
+			"type":"select",
+			"id":"text-align-desk",
+			"label":"Desktop Content Alignment",
+			"options":[
+				{
+					"value":"left",
+					"label":"Align Left"
+				},
+				{
+					"value":"center",
+					"label":"Align Center"
+				},
+              {
+					"value":"right",
+					"label":"Align Right"
+				}
+			],
+			"default":"center",
+			"info":"Default Value: Align Center"
+		},
+  {
+			"type":"select",
+			"id":"text-align-sm",
+			"label":"Mobile Content Alignment",
+			"options":[
+				{
+					"value":"left",
+					"label":"Align Left"
+				},
+				{
+					"value":"center",
+					"label":"Align Center"
+				},
+              {
+					"value":"right",
+					"label":"Align Right"
+				}
+			],
+			"default":"center",
+			"info":"Default Value: Align Center"
+		},
+  {
+            "type": "text",
+            "id": "section-padding-top-sm",
+            "label": "Mobile Spacing Top",
+            "default": "15px"
+          },
+          {
+            "type": "text",
+            "id": "section-padding-bottom-sm",
+            "label": "Mobile Spacing Bottom",
+            "default": "15px"
+          },
+          {
+            "type": "text",
+            "id": "section-padding-left-sm",
+            "label": "Mobile Spacing Left",
+            "default": "15px"
+          },
+          {
+            "type": "text",
+            "id": "section-padding-right-sm",
+            "label": "Mobile Spacing Right",
+            "default": "15px"
+          },
+         {
+            "type": "text",
+            "id": "height-desk",
+            "label": "Desktop Banner Height",
+            "default": "38.125vw"
+          },
+          {
+            "type": "text",
+            "id": "height-mobile",
+            "label": "Mobile Banner Height",
+            "default": "160vw"
+          },
+        {
+            "type": "text",
+            "id": "content-width-desktop",
+            "label": "Desktop Content Width",
+            "default": "39vw"
+          },
+  {
+            "type": "text",
+            "id": "content-position-right",
+            "label": "Desktop Content Position Right",
+            "default": "5vw"
+          },
+  {
+            "type": "text",
+            "id": "content-position-left",
+            "label": "Desktop Content Position Left",
+            "default": "5vw"
+          }
+],
+"blocks" :[
+     {
+       "type": "section-text-block",
+       "name": "Text Block",
+       "settings": [
+          {
+              "type": "header",
+              "content": "Block Text Properties"
+          },
+          {
+             "type": "html",
+             "id": "block-text-content",
+             "label": "Text Block Content",
+             "default": "Text Content Here…"
+          },
+          {
+             "type": "text",
+             "id": "block-text-font-family",
+             "label": "Block Text Font Family"
+          },
+          {
+             "type": "text",
+             "id": "block-text-font-size-lg",
+             "label": "Block Text Font Size Dskt",
+             "default": "22px"
+          },
+          {
+             "type": "text",
+             "id": "block-text-font-size-sm",
+             "label": "Block Text Font Size Small",
+             "default": "16px"
+          },
+          {
+             "type": "text",
+             "id": "block-text-font-weight",
+             "label": "Block Text Font Weight",
+             "default": "normal"
+          },
+          {
+             "type": "text",
+             "id": "block-text-letter-spacing",
+             "label": "Block Text Letter Spacing",
+             "default": "normal"
+          },
+          {
+             "type": "text",
+             "id": "block-text-letter-spacing-sm",
+             "label": "Block Text Letter Spacing Mobile",
+             "default": "normal"
+          },
+          {
+             "type": "text",
+             "id": "block-text-line-height",
+             "label": "Block Text Line Height",
+             "default": "normal"
+          },
+          {
+             "type": "text",
+             "id": "block-text-line-height-sm",
+             "label": "Block Text Line Height Mobile",
+             "default": "normal"
+          },
+          {
+              "type": "color",
+              "id": "block-text-color",
+              "label": "Block Text Color",
+              "default": "#1e396b",
+              "info": "Default Value: #1e396b"
+          },
+          {
+             "type": "text",
+             "id": "block-color-gradient",
+             "label": "Background Gradient Color",
+             "default": "inherit"
+          },
+         {
+             "type": "text",
+             "id": "text-fill-color",
+             "label": "Text Fill Color",
+             "default": "inherit"
+          },
+         {
+             "type": "text",
+             "id": "text-shadow",
+             "label": "Text Shadow",
+             "default": "inherit"
+          },
+          {
+            "type": "text",
+            "id": "text-padding-top",
+            "label": "Text Margin Top",
+            "default": "0"
+          },
+          {
+            "type": "text",
+            "id": "text-padding-bottom",
+            "label": "Text Margin Bottom",
+            "default": "0"
+          },
+          {
+            "type": "text",
+            "id": "text-padding-top-sm",
+            "label": "Text Margin Top Mobile",
+            "default": "0"
+          },
+          {
+            "type": "text",
+            "id": "text-padding-bottom-sm",
+            "label": "Text Margin Bottom Mobile",
+            "default": "0"
+          }
+       ]
+     },
+   {
+    "type": "core-free-gift-img",
+    "name": "Offer IMG Block",
+    "settings": [
+         {
+         "type": "header",
+         "content": "Offer IMG Block"
+          },
+           {
+           "type": "image_picker",
+           "id": "offer-img-block",
+           "label": "Offer IMG Desk"
+        },
+       {
+           "type": "image_picker",
+           "id": "offer-img-block-sm",
+           "label": "Offer IMG Mobile"
+        },
+      {
+            "type": "text",
+            "id": "width-dektop",
+            "label": "IMG Width Desk",
+            "default": "31.944vw"
+          },
+      {
+            "type": "text",
+            "id": "width-mobile",
+            "label": "IMG Width Mobile",
+            "default": "90.278vw"
+          },
+       {
+            "type": "text",
+            "id": "offer-padding-top",
+            "label": "IMG Margin Top",
+            "default": "0"
+          },
+          {
+            "type": "text",
+            "id": "offer-padding-bottom",
+            "label": "IMG Margin Bottom",
+            "default": "0"
+          },
+          {
+            "type": "text",
+            "id": "offer-padding-top-sm",
+            "label": "IMG Margin Top Mobile",
+            "default": "0"
+          },
+          {
+            "type": "text",
+            "id": "offer-padding-bottom-sm",
+            "label": "IMG Margin Bottom Mobile",
+            "default": "0"
+          }
+      ]
+     },
+      {
+       "type": "section-cta-block",
+       "name": "CTA Block",
+       "settings": [
+          {
+              "type": "header",
+              "content": "Block CTA Properties"
+          },
+          {
+             "type": "html",
+             "id": "block-cta-content",
+             "label": "CTA Text Content",
+             "default": "SHOP NOW"
+          },
+          {
+             "type": "url",
+             "id": "block-cta-url",
+             "label": "CTA Button Link"
+          },
+          {
+              "type":"checkbox",
+              "id":"set_as_campaign_pages",
+              "label":"Set Dynamic CTA URL",
+              "info":"Choose page for Campaign based URL",
+              "default":false
+          },
+          {
+              "type":"select",
+              "id":"campaign_page",
+              "label":"Select Campaign Page",
+              "info":"Render the Page URL based on campaign details",
+              "options":[
+                  {
+                      "value":"LANDINGPAGE",
+                      "label":"Landing Page"
+                  },
+                  {
+                      "value":"SAS",
+                      "label":"SAS page"
+                  }
+              ]
+          },
+          {
+             "type": "text",
+             "id": "cta-font-size-lg",
+             "label": "CTA Font Size Dskt",
+             "default": "21px"
+          },
+          {
+             "type": "text",
+             "id": "cta-font-size-sm",
+             "label": "CTA Font Size Small",
+             "default": "16px"
+          },
+         {
+            "type": "text",
+            "id": "cta-width-dektop",
+            "label": "CTA Width Desk",
+            "default": "18.083vw"
+          },
+      {
+            "type": "text",
+            "id": "cta-width-mobile",
+            "label": "CTA Width Mobile",
+            "default": "71.111vw"
+          },
+         {
+            "type": "text",
+            "id": "cta-height-dektop",
+            "label": "CTA Height Desk",
+            "default": "3.5vw"
+          },
+      {
+            "type": "text",
+            "id": "cta-height-mobile",
+            "label": "CTA Height Mobile",
+            "default": "13.889vw"
+          },
+          {
+             "type": "text",
+             "id": "block-cta-font-weight",
+             "label": "Block CTA Font Weight",
+             "default": "normal"
+          },
+          {
+              "type": "color",
+              "id": "block-cta-color",
+              "label": "CTA Text Color",
+              "default": "#ffffff",
+              "info": "Default Value: #ffffff"
+          },
+          {
+              "type": "color",
+              "id": "block-cta-bg-color",
+              "label": "CTA BG Text Color",
+              "default": "#1e396b",
+              "info": "Default Value: #1e396b"
+          },
+          {
+           "type": "image_picker",
+           "id": "cta-bg-image",
+           "label": "CTA BG IMG"
+        },
+         {
+            "type": "text",
+            "id": "cta-padding-top",
+            "label": "Text Margin Top",
+            "default": "0"
+          },
+          {
+            "type": "text",
+            "id": "cta-padding-bottom",
+            "label": "Text Margin Bottom",
+            "default": "0"
+          },
+          {
+            "type": "text",
+            "id": "cta-padding-top-sm",
+            "label": "Text Margin Top Mobile",
+            "default": "0"
+          },
+          {
+            "type": "text",
+            "id": "cta-padding-bottom-sm",
+            "label": "Text Margin Bottom Mobile",
+            "default": "0"
+          }
+       ]
+     },
+     {
+    "type": "core-free-ship-gift-img",
+    "name": "Free Shipping IMG Block",
+    "settings": [
+         {
+         "type": "header",
+         "content": "Free Shipping IMG Block"
+          },
+           {
+           "type": "image_picker",
+           "id": "free-shipping-img",
+           "label": "Free Shipping Image"
+        },
+      {
+            "type": "text",
+            "id": "free-shipping-width-lg",
+            "label": "Free Shipping Image Width DESK",
+            "default": "6.965vw"
+          },
+      {
+            "type": "text",
+            "id": "free-shipping-width-sm",
+            "label": "Free Shipping Image Width Mobile",
+            "default": "15.278vw"
+          },
+      {
+            "type": "text",
+            "id": "free-shipping-height-lg",
+            "label": "Free Shipping Image Height DESK",
+            "default": "auto"
+          },
+       {
+           "type": "image_picker",
+           "id": "mbg-img",
+           "label": "MBG Image"
+        },
+       {
+            "type": "text",
+            "id": "mbg-img-width-lg",
+            "label": "MBG Image Width DESK",
+            "default": "5.59vw"
+          },
+      {
+            "type": "text",
+            "id": "mbg-img-width-sm",
+            "label": "MBG Image Width Mobile",
+            "default": "13.889vw"
+          },
+      {
+            "type": "text",
+            "id": "mbg-img-height-lg",
+            "label": "MBG Image Height DESK",
+            "default": "auto"
+          },
+      {
+            "type": "text",
+            "id": "free-shipping-spacing-lg",
+            "label": "Free Shiping Right Spacing Desk",
+            "default": "3vw"
+          },
+      {
+            "type": "text",
+            "id": "free-shipping-spacing-sm",
+            "label": "Free Shiping Right Spacing Mobile",
+            "default": "2.8vw"
+          },
+        {
+			"type":"select",
+			"id":"free-shipping-option",
+			"label":"Display Mode",
+			"options":[
+				{
+					"value":"desktop",
+					"label":"Show Desktop Only"
+				},
+				{
+					"value":"mobile-and-desk",
+					"label":"Show Mobile & Desktop"
+				}
+			],
+			"default":"mobile-and-desk",
+			"info":"Default Value: Show Mobile & Desktop"
+		}
+      ]
+     },
+  {
+       "type": "shipping-text-block",
+       "name": "Text Block with IMG",
+       "settings": [
+          {
+              "type": "header",
+              "content": "Block Text Properties"
+          },
+          {
+             "type": "html",
+             "id": "block-shipping-content",
+             "label": "Text Block Content",
+             "default": "Text Content Here…"
+          },
+          {
+             "type": "text",
+             "id": "block-shipping-font-family",
+             "label": "Block Text Font Family"
+          },
+          {
+             "type": "text",
+             "id": "block-shipping-font-size-lg",
+             "label": "Block Text Font Size Dskt",
+             "default": "22px"
+          },
+          {
+             "type": "text",
+             "id": "block-shipping-font-size-sm",
+             "label": "Block Text Font Size Small",
+             "default": "16px"
+          },
+          {
+             "type": "text",
+             "id": "block-shipping-font-weight",
+             "label": "Block Text Font Weight",
+             "default": "normal"
+          },
+          {
+             "type": "text",
+             "id": "block-shipping-letter-spacing",
+             "label": "Block Text Letter Spacing",
+             "default": "normal"
+          },
+          {
+             "type": "text",
+             "id": "block-shipping-letter-spacing-sm",
+             "label": "Block Text Letter Spacing Mobile",
+             "default": "normal"
+          },
+          {
+             "type": "text",
+             "id": "block-shipping-line-height",
+             "label": "Block Text Line Height",
+             "default": "normal"
+          },
+          {
+             "type": "text",
+             "id": "block-shipping-line-height-sm",
+             "label": "Block Text Line Height Mobile",
+             "default": "normal"
+          },
+          {
+              "type": "color",
+              "id": "block-shipping-color",
+              "label": "Block Text Color",
+              "default": "#1e396b",
+              "info": "Default Value: #1e396b"
+          },
+         {
+            "type": "text",
+            "id": "shipping-padding-top",
+            "label": "Text Margin Top",
+            "default": "0"
+          },
+          {
+            "type": "text",
+            "id": "shipping-padding-bottom",
+            "label": "Text Margin Bottom",
+            "default": "0"
+          },
+          {
+            "type": "text",
+            "id": "shipping-padding-top-sm",
+            "label": "Text Margin Top Mobile",
+            "default": "0"
+          },
+          {
+            "type": "text",
+            "id": "shipping-padding-bottom-sm",
+            "label": "Text Margin Bottom Mobile",
+            "default": "0"
+          },
+          {
+           "type": "image_picker",
+           "id": "free-ship-img",
+           "label": "Free Shipping Image"
+        },
+       {
+            "type": "text",
+            "id": "free-ship-img-width-lg",
+            "label": "Free Shipping Width DESK",
+            "default": "3.347vw"
+          },
+      {
+            "type": "text",
+            "id": "free-ship-img-width-sm",
+            "label": "Free Shipping Width Mobile",
+            "default": "8.611vw"
+          },
+      {
+            "type": "text",
+            "id": "free-ship-img-height-lg",
+            "label": "Free Shipping Height DESK",
+            "default": "2.701vw"
+          },
+          {
+            "type": "text",
+            "id": "free-ship-img-height-sm",
+            "label": "Free Shipping Height DESK",
+            "default": "6.944vw"
+          }
+       ]
+     }
+],
+"presets": [
+{
+ "name": "Core Billboard"
+}
+]
+}
+{% endschema %}

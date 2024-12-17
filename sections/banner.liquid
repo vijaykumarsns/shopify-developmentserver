@@ -1,0 +1,34 @@
+<div class="banner">
+  
+   <h1>{{ section.settings.banner-text }}</h1>
+     
+</div>
+{% style %}
+  .banner {
+    background:{{ section.settings.billboard-bg-color }};
+    height:150px;
+  }
+{% endstyle %}
+{% schema %}
+  {
+    "name": "Banner",
+    "settings": [
+       {
+        "type": "color",
+        "id": "billboard-bg-color",
+        "label": "Billboard Color"
+      },
+       {
+        "type": "text",
+        "id": "banner-text",
+        "label": "Billboard Text",
+         "default": "Summer Sale"
+      }
+    ],
+    "presets": [
+        {
+         "name": "Banner Section"
+        }
+      ]
+  }
+{% endschema %}
